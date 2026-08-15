@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CKIEditor.Model.Defs;
 using CKIEditor.Validation;
 using TMPro;
 using UnityEngine;
@@ -9,22 +10,26 @@ using UnityEngine.UI;
 namespace CKIEditor.UI.Preflight
 {
     /// <summary>
-    /// The preflight step of "Prepare for Cirklon": findings with one-click fixes,
-    /// export blocked while errors remain. Built entirely in code so it needs no
-    /// prefab - styled from CkiTheme to match the design study.
+    /// The "Prepare for Cirklon" step: findings with one-click fixes, a
+    /// hardware preview, and an export-scope choice. Errors block export -
+    /// but only errors in what's actually being exported. Built entirely in
+    /// code so it needs no prefab - styled from CkiTheme to match the design.
     /// </summary>
     public static class PreflightDialog
     {
         private const int PANEL_WIDTH = 620;
         private const int MAX_VISIBLE_FINDINGS = 8;
 
-        public static void Show(List<ValidationFinding> findings, string summary, Action onExport, Action onCancel)
+        /// <param name="onExport">receives true to export the whole library, false for just the edited instrument</param>
+        public static void Show(List<ValidationFinding> findings, string summary,
+            InstrumentDef editedInstrument, int instrumentCount,
+            Action<bool> onExport, Action onCancel)
         {
             var canvas = UnityEngine.Object.FindObjectOfType<Canvas>();
             if (canvas == null)
             {
                 Debug.LogError("PreflightDialog: no Canvas in scene - exporting without preflight UI.");
-                onExport?.Invoke();
+                onExport?.Invoke(true);
                 return;
             }
 
@@ -32,7 +37,10 @@ namespace CKIEditor.UI.Preflight
             var panel = CreatePanel(overlay.transform);
 
             CreateText(panel.transform, "PREPARE FOR CIRKLON", 15, CkiTheme.Accent, FontStyles.Bold, 0.12f);
-            CreateText(panel.transform, "Preflight found things worth a look before this ships to hardware.",
+            CreateText(panel.transform,
+                findings.Count > 0
+                    ? "Preflight found things worth a look before this ships to hardware."
+                    : "Preflight passed — nothing the hardware would trip over.",
                 13, CkiTheme.Dim);
 
             var rows = new List<FindingRow>();
@@ -43,24 +51,65 @@ namespace CKIEditor.UI.Preflight
             if (findings.Count > shown.Count)
                 CreateText(panel.transform, $"…and {findings.Count - shown.Count} more.", 12, CkiTheme.Faint);
 
+            if (findings.Count == 0)
+                CreatePassRow(panel.transform);
+
+            TextMeshProUGUI summaryText = null;
             if (!string.IsNullOrEmpty(summary))
-                CreateText(panel.transform, summary, 12, CkiTheme.Faint);
+                summaryText = CreateText(panel.transform, summary, 12, CkiTheme.Faint);
+
+            //export scope - only a choice when there is more than one instrument.
+            //statusText/exportButton are declared here (not at the footer) so the
+            //scope-button lambdas referencing Refresh() see definitely-assigned locals
+            var exportAll = true;
+            Button allButton = null, currentButton = null;
+            TextMeshProUGUI statusText = null;
+            Button exportButton = null;
+            var hasScopeChoice = instrumentCount > 1 && editedInstrument != null;
+
+            if (hasScopeChoice)
+            {
+                var scopeRow = CreateRow(panel.transform, 8);
+                var scopeLabel = CreateText(scopeRow.transform, "Export:", 12.5f, CkiTheme.Dim);
+                scopeLabel.GetComponent<LayoutElement>().minWidth = 50;
+                allButton = CreateButton(scopeRow.transform, $"All {instrumentCount} instruments", false,
+                    () => { exportAll = true; Refresh(); });
+                currentButton = CreateButton(scopeRow.transform, $"Only “{editedInstrument.Name}”", false,
+                    () => { exportAll = false; Refresh(); });
+            }
 
             //footer
             var footer = CreateRow(panel.transform, 10);
-            var statusText = CreateText(footer.transform, "", 12.5f, CkiTheme.Dim);
+            statusText = CreateText(footer.transform, "", 12.5f, CkiTheme.Dim);
             statusText.GetComponent<LayoutElement>().flexibleWidth = 1;
 
-            Button exportButton = null;
+            //errors gate export, but only for instruments inside the chosen scope
+            int RelevantErrors()
+            {
+                return findings.Count(f => f.Severity == FindingSeverity.Error && !f.IsFixed
+                                           && (exportAll || string.IsNullOrEmpty(f.InstrumentName)
+                                               || f.InstrumentName == editedInstrument.Name));
+            }
 
             void Refresh()
             {
-                var errors = findings.Count(f => f.Severity == FindingSeverity.Error && !f.IsFixed);
+                var errors = RelevantErrors();
                 statusText.text = errors > 0
                     ? $"{errors} error{(errors > 1 ? "s" : "")} to fix before export"
                     : "Ready to export";
                 statusText.color = errors > 0 ? CkiTheme.Error : CkiTheme.Ok;
                 SetButtonEnabled(exportButton, errors == 0);
+
+                if (hasScopeChoice)
+                {
+                    StyleScopeButton(allButton, exportAll);
+                    StyleScopeButton(currentButton, !exportAll);
+
+                    if (summaryText != null)
+                        summaryText.text = exportAll
+                            ? summary
+                            : $"Exporting only “{editedInstrument.Name}” · {editedInstrument.CcDefs.Count} CC defs";
+                }
 
                 foreach (var row in rows)
                     row.Refresh();
@@ -77,6 +126,12 @@ namespace CKIEditor.UI.Preflight
                 onCancel?.Invoke();
             });
 
+            if (editedInstrument != null)
+            {
+                CreateButton(footer.transform, "Preview", false,
+                    () => HardwarePreviewDialog.Show(editedInstrument));
+            }
+
             if (findings.Any(f => f.CanFix))
             {
                 CreateButton(footer.transform, "Apply all fixes", false, () =>
@@ -90,7 +145,7 @@ namespace CKIEditor.UI.Preflight
             exportButton = CreateButton(footer.transform, "Export", true, () =>
             {
                 Close();
-                onExport?.Invoke();
+                onExport?.Invoke(exportAll);
             });
 
             foreach (var row in rows)
@@ -119,6 +174,44 @@ namespace CKIEditor.UI.Preflight
                 if (FixButton != null)
                     FixButton.SetActive(false);
             }
+        }
+
+        private static void StyleScopeButton(Button button, bool selected)
+        {
+            if (button == null)
+                return;
+
+            button.GetComponent<Image>().color = selected ? CkiTheme.Accent : CkiTheme.Panel2;
+            var text = button.GetComponentInChildren<TextMeshProUGUI>();
+            if (text != null)
+                text.color = selected ? CkiTheme.AccentInk : CkiTheme.Ink;
+        }
+
+        private static void CreatePassRow(Transform parent)
+        {
+            var row = new GameObject("Pass", typeof(RectTransform), typeof(Image), typeof(HorizontalLayoutGroup));
+            row.transform.SetParent(parent, false);
+            row.GetComponent<Image>().color = CkiTheme.Soft(CkiTheme.Ok, 0.10f);
+
+            var layout = row.GetComponent<HorizontalLayoutGroup>();
+            layout.padding = new RectOffset(12, 12, 9, 9);
+            layout.spacing = 10;
+            layout.childControlWidth = true;
+            layout.childControlHeight = true;
+            layout.childForceExpandWidth = false;
+            layout.childForceExpandHeight = false;
+            layout.childAlignment = TextAnchor.MiddleLeft;
+
+            var signal = new GameObject("Signal", typeof(RectTransform), typeof(Image), typeof(LayoutElement));
+            signal.transform.SetParent(row.transform, false);
+            signal.GetComponent<Image>().color = CkiTheme.Ok;
+            var signalLayout = signal.GetComponent<LayoutElement>();
+            signalLayout.preferredWidth = 8;
+            signalLayout.preferredHeight = 8;
+            signalLayout.flexibleWidth = 0;
+
+            var text = CreateText(row.transform, "Everything passes.", 13.5f, CkiTheme.Ink, FontStyles.Bold);
+            text.GetComponent<LayoutElement>().flexibleWidth = 1;
         }
 
         private static GameObject CreateOverlay(Transform parent)

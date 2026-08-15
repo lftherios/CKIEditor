@@ -19,7 +19,11 @@ New in this version (following the [UI/UX design study](https://claude.ai/code/a
 
 * **CC map editing** - "Paste chart" imports MIDI implementation rows straight from a manual (`19 Filter Cutoff 0-127`, piped/tabbed tables, `74: Cutoff`), auto-abbreviating six-character labels. The add-CC form takes a full name and notes (stored in the .ckix sidecar) and suggests the label as you type; list rows show the full name as the label's placeholder and follow CC renumbering.
 
+* **Track value arranging** - drag a slot's grip onto another slot to move it (or swap, when occupied); rows of six mirror the hardware pages.
+* **On-hardware preview** - the Prepare dialog's Preview shows the exact TRACK-values screens the Cirklon will draw: six labels per row, populated rows only, flip rows like turning the ROW encoder.
+* **Export scope** - ship the whole library or just the current instrument; preflight errors only block the scope actually being exported.
+
 It is currently work in progress. Remaining before v1.0:
 
-* Track value drag-and-drop arranging
-* More export options (export only selected instruments, choose target CirkOS version)
+* In-place theme reskin of the main screen (CkiTheme tokens exist; needs a Unity editor pass)
+* Choose target CirkOS version on export

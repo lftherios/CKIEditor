@@ -57,6 +57,7 @@ namespace CKIEditor
             injectionBinder.Bind<InstrumentsImportedSignal>().To<InstrumentsImportedSignal>().ToSingleton();
             
             injectionBinder.Bind<InstrumentCcDefsChangedSignal>().To<InstrumentCcDefsChangedSignal>().ToSingleton();
+            injectionBinder.Bind<TrackValuesChangedSignal>().To<TrackValuesChangedSignal>().ToSingleton();
             injectionBinder.Bind<InstrumentNoteRowDefsChangedSignal>().To<InstrumentNoteRowDefsChangedSignal>().ToSingleton();
             injectionBinder.Bind<InstrumentGeneralSettingsChangedSignal>().To<InstrumentGeneralSettingsChangedSignal>().ToSingleton();
             
@@ -90,6 +91,7 @@ namespace CKIEditor
             commandBinder.Bind<ImportInstrumentsSignal>().To<ImportInstrumentsCommand>();
             commandBinder.Bind<ExportInstrumentsSignal>().To<ExportInstrumentsCommand>();
             commandBinder.Bind<ImportCcChartSignal>().To<ImportCcChartCommand>();
+            commandBinder.Bind<MoveTrackValueSignal>().To<MoveTrackValueCommand>();
             
             commandBinder.Bind<CreateNewInstrumentSignal>().To<CreateNewInstrumentCommand>();
             commandBinder.Bind<EditGeneralSettingsSignal>().To<EditGeneralSettingsCommand>();

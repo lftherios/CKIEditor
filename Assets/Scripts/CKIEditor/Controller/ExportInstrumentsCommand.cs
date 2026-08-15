@@ -31,20 +31,22 @@ namespace CKIEditor.Controller
         public override void Execute()
         {
             var instruments = InstrumentsModel.GetAllInstruments();
-            var findings = InstrumentValidator.ValidateLibrary(instruments);
-
-            if (findings.Count == 0)
-            {
-                DoExport(instruments);
+            if (instruments.Count == 0)
                 return;
-            }
 
-            //preflight: errors block export until fixed, warnings ship knowingly
+            var findings = InstrumentValidator.ValidateLibrary(instruments);
+            var edited = InstrumentsModel.GetEditedInstrument();
+
+            //preflight always runs: errors block export until fixed, warnings ship
+            //knowingly, and the dialog offers preview + export scope
             Retain();
-            PreflightDialog.Show(findings, BuildSummary(instruments),
-                onExport: () =>
+            PreflightDialog.Show(findings, BuildSummary(instruments), edited, instruments.Count,
+                onExport: exportAll =>
                 {
-                    DoExport(instruments);
+                    var toExport = exportAll || edited == null
+                        ? instruments
+                        : new List<InstrumentDef> { edited };
+                    DoExport(toExport);
                     Release();
                 },
                 onCancel: Release);
@@ -52,8 +54,9 @@ namespace CKIEditor.Controller
 
         private void DoExport(List<InstrumentDef> instruments)
         {
+            var defaultName = instruments.Count == 1 ? instruments[0].Name : "Library";
             var loadDirectory = PrefsManager.GetUserString(SAVE_DIRECTORY_KEY, null);
-            var path = FileBrowser.SaveFile("Export CKI file", loadDirectory, "Library", JsonKeys.FILE_EXTENSIONS);
+            var path = FileBrowser.SaveFile("Export CKI file", loadDirectory, defaultName, JsonKeys.FILE_EXTENSIONS);
 
             if (string.IsNullOrEmpty(path))
                 return;
