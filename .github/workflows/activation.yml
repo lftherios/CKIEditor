@@ -13,12 +13,17 @@ jobs:
     name: Request activation file
     runs-on: ubuntu-latest
     steps:
-      - id: request
-        uses: game-ci/unity-request-activation-file@v2
-        with:
-          unityVersion: 2019.3.1f1
+      - name: Create manual activation file
+        run: |
+          mkdir alf
+          docker run --rm -v "$PWD/alf:/output" -w /output \
+            unityci/editor:ubuntu-2019.3.1f1-base-3 \
+            unity-editor -batchmode -nographics -quit \
+            -createManualActivationFile -logFile /dev/stdout || true
+          ls -la alf
+          test -f alf/Unity_v2019.3.1f1.alf
 
       - uses: actions/upload-artifact@v4
         with:
           name: Unity_v2019.3.1f1.alf
-          path: ${{ steps.request.outputs.filePath }}
+          path: alf/Unity_v2019.3.1f1.alf
