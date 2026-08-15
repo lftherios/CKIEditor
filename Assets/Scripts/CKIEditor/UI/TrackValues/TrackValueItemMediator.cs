@@ -43,17 +43,23 @@ namespace CKIEditor.UI.TrackValues
         private void TrackValueTypeDropdownChanged(int value)
         {
             RemoveListeners();
-            
-            DataProvider.TrackValue.Type = (TrackValueType) value;
-            var instrument = InstrumentsModel.GetEditedInstrument();
 
-            //get cc label from currently selected cc option
-            var ccId = OptionsModel.GetCCnumberByOptionId(0);
-            DataProvider.TrackValue.MidiCC = ccId;
-            DataProvider.TrackValue.Label = instrument.CcDefs[ccId].Label;
-            
+            DataProvider.TrackValue.Type = (TrackValueType) value;
+
+            //when switching to a CC slot, default to the instrument's first CC def (if it has any)
+            if (DataProvider.TrackValue.Type == TrackValueType.MidiCC)
+            {
+                var ccId = OptionsModel.GetCCnumberByOptionId(0);
+                if (ccId >= 0)
+                {
+                    var instrument = InstrumentsModel.GetEditedInstrument();
+                    DataProvider.TrackValue.MidiCC = ccId;
+                    DataProvider.TrackValue.Label = instrument.CcDefs[ccId].Label;
+                }
+            }
+
             UpdateView();
-            
+
             AddListeners();
         }
 
@@ -66,7 +72,12 @@ namespace CKIEditor.UI.TrackValues
         
         private void CcSelectionDropdownChanged(int value)
         {
-            DataProvider.TrackValue.MidiCC = OptionsModel.GetCCnumberByOptionId(value);
+            var ccId = OptionsModel.GetCCnumberByOptionId(value);
+            if (ccId < 0)
+                return;
+
+            DataProvider.TrackValue.MidiCC = ccId;
+            DataProvider.TrackValue.Label = InstrumentsModel.GetEditedInstrument().CcDefs[ccId].Label;
         }
 
         public override void SetData(TrackValueDataProvider dataProvider, int index)
@@ -97,9 +108,10 @@ namespace CKIEditor.UI.TrackValues
                 case TrackValueType.Empty:
                     break;
                 case TrackValueType.MidiCC:
-                    //TODO - we should use label from DataProvider.TrackValue.Label 
-                    //custom label should be passed when asking data for dropdown to override default cc name
-                    View.CcSelectionDropdown.value = DataProvider.TrackValue.MidiCC;
+                    //dropdown wants the option index, not the raw CC number
+                    var optionId = OptionsModel.GetOptionIdByCcNumber(DataProvider.TrackValue.MidiCC);
+                    if (optionId >= 0)
+                        View.CcSelectionDropdown.value = optionId;
                     break;
                 case TrackValueType.TrackControl:
                     View.TrackControlTypeDropdown.value = (int)DataProvider.TrackValue.TrackControl;

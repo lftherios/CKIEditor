@@ -15,6 +15,14 @@ namespace CKIEditor.Serialization
         public const string POLY_SPREAD = "poly_spread";
         public const string NO_XPOSE = "no_xpose";
         public const string NO_FTS = "no_fts";
+        //global - added in CirkOS 1.18 - 1.22
+        public const string NO_THRU = "no_thru";
+        public const string NO_BANK_M = "no_bankM";
+        public const string NO_BANK_L = "no_bankL";
+        public const string SHOW_NOTE_NUMS = "show_note_nums";
+        public const string PRESEND_PGM = "presend_pgm";
+
+        public const string OFF = "off";
         
         //track values
         public const string TRACK_VALUES = "track_values";

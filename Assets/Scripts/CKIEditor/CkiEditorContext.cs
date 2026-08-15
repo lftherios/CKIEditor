@@ -1,4 +1,5 @@
 using CKIEditor.Controller;
+using CKIEditor.Metadata;
 using CKIEditor.Model;
 using CKIEditor.Serialization;
 using CKIEditor.UI;
@@ -49,6 +50,7 @@ namespace CKIEditor
             injectionBinder.Bind<IInstrumentsParser>().To<PyramidInstrumentsParser>().ToName(BindingKeys.PARSER_PYRAMID).ToSingleton();
             injectionBinder.Bind<IInstrumentsModel>().To<InstrumentsModel>().ToSingleton();
             injectionBinder.Bind<IOptionsModel>().To<OptionsModel>().ToSingleton();
+            injectionBinder.Bind<IMetadataModel>().To<MetadataModel>().ToSingleton();
             
             injectionBinder.Bind<AppSectionChangedSignal>().To<AppSectionChangedSignal>().ToSingleton();
             injectionBinder.Bind<EditedInstrumentChangedSignal>().To<EditedInstrumentChangedSignal>().ToSingleton();

@@ -56,6 +56,10 @@ namespace CKIEditor.Model
         public static int GetOctaveIndex(string noteString)
         {
             var octaveNumber = noteString.Substring(2);
+            //Cirklon displays octave 10 as "X"
+            if (octaveNumber == "X")
+                return 10;
+
             int.TryParse(octaveNumber, out int octaveIndex);
             return octaveIndex;
         }
@@ -67,15 +71,14 @@ namespace CKIEditor.Model
         
         public static string GetNoteName(int noteId)
         {
-            var noteIndex = (int)Mathf.Floor(noteId / OCTAVE_INTERVAL);
-            var octaveIndex = noteId % OCTAVE_INTERVAL;
-            
-            return GetNoteName(noteIndex, octaveIndex); 
+            return GetNoteName(GetNoteIndex(noteId), GetOctaveIndex(noteId));
         }
         
         public static string GetNoteName(int noteIndex, int octaveIndex)
         {
-            return $"{Notes[noteIndex]}{octaveIndex}"; 
+            //Cirklon displays octave 10 as "X" to keep note names 3 characters wide
+            var octaveString = octaveIndex == 10 ? "X" : octaveIndex.ToString();
+            return $"{Notes[noteIndex]}{octaveString}";
         }
     }
 }

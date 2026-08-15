@@ -42,14 +42,22 @@ namespace CKIEditor.Serialization
             instrumentDef.MidiPort = json[JsonKeys.MIDI_PORT];
             instrumentDef.MidiChannel = json[JsonKeys.MIDI_CHAN]; 
             
-            if(json[JsonKeys.DEFAULT_NOTE] != "off")
-                instrumentDef.DefaultNote = new Note((string)json[JsonKeys.DEFAULT_NOTE]);
-            
+            var defaultNoteString = (string)json[JsonKeys.DEFAULT_NOTE];
+            if(string.IsNullOrEmpty(defaultNoteString) || defaultNoteString == JsonKeys.OFF)
+                instrumentDef.DefaultNote = null;
+            else
+                instrumentDef.DefaultNote = new Note(defaultNoteString);
+
             instrumentDef.DefaultPattern = defaultPattern;
             instrumentDef.Multi = json[JsonKeys.MULTI];
-            instrumentDef.PolySpread = json[JsonKeys.POLY_SPREAD];
+            instrumentDef.PolySpread = ParsePolySpread(json[JsonKeys.POLY_SPREAD]);
             instrumentDef.NoFts = json[JsonKeys.NO_FTS];
             instrumentDef.NoXpose = json[JsonKeys.NO_XPOSE];
+            instrumentDef.NoThru = json[JsonKeys.NO_THRU];
+            instrumentDef.NoBankM = json[JsonKeys.NO_BANK_M];
+            instrumentDef.NoBankL = json[JsonKeys.NO_BANK_L];
+            instrumentDef.ShowNoteNums = json[JsonKeys.SHOW_NOTE_NUMS];
+            instrumentDef.PresendPgm = json[JsonKeys.PRESEND_PGM];
 
             Debug.LogWarning($"<color=\"aqua\">InitAppCommand.ParseInstrument() : =================={name}==================</color>");
             Debug.LogWarning($"<color=\"aqua\">InitAppCommand.ParseInstrument() GLOBAL - MidiPort:{instrumentDef.MidiPort}</color>");
@@ -117,6 +125,26 @@ namespace CKIEditor.Serialization
             return instrumentDef;
         }
 
+        //firmware writes "off" or the number of spread channels (2 - 16),
+        //older versions of this editor wrote true / false
+        private static int ParsePolySpread(JSONNode node)
+        {
+            if (node == null)
+                return CkiConsts.POLY_SPREAD_OFF;
+
+            var value = node.Value;
+            if (string.IsNullOrEmpty(value)
+                || string.Equals(value, JsonKeys.OFF, StringComparison.OrdinalIgnoreCase)
+                || string.Equals(value, "false", StringComparison.OrdinalIgnoreCase))
+                return CkiConsts.POLY_SPREAD_OFF;
+
+            if (string.Equals(value, "true", StringComparison.OrdinalIgnoreCase))
+                return CkiConsts.POLY_SPREAD_MIN;
+
+            int.TryParse(value, out var channels);
+            return Mathf.Clamp(channels, CkiConsts.POLY_SPREAD_OFF, CkiConsts.POLY_SPREAD_MAX);
+        }
+
         private TrackValueDef ParseTrackValueDef(int index, JSONNode json)
         {
             TrackValueType trackValueType = TrackValueType.Empty;
@@ -156,12 +184,27 @@ namespace CKIEditor.Serialization
                 var instrumentJson = new JSONObject();
                 instrumentJson.Add(JsonKeys.MIDI_PORT, new JSONNumber(instrument.MidiPort));
                 instrumentJson.Add(JsonKeys.MIDI_CHAN, new JSONNumber(instrument.MidiChannel));
-                instrumentJson.Add(JsonKeys.DEFAULT_NOTE, new JSONString(instrument.DefaultNote.Name));
+                instrumentJson.Add(JsonKeys.MULTI, new JSONBool(instrument.Multi));
+                instrumentJson.Add(JsonKeys.PRESEND_PGM, new JSONBool(instrument.PresendPgm));
+
+                if (instrument.DefaultNote.HasValue)
+                    instrumentJson.Add(JsonKeys.DEFAULT_NOTE, new JSONString(instrument.DefaultNote.Value.Name));
+                else
+                    instrumentJson.Add(JsonKeys.DEFAULT_NOTE, new JSONString(JsonKeys.OFF));
+
                 instrumentJson.Add(JsonKeys.DEFAULT_PATT, new JSONString(instrument.DefaultPattern.ToString()));
-                instrumentJson.Add(JsonKeys.POLY_SPREAD, new JSONBool(instrument.PolySpread));
+
+                if (instrument.PolySpread >= CkiConsts.POLY_SPREAD_MIN)
+                    instrumentJson.Add(JsonKeys.POLY_SPREAD, new JSONNumber(instrument.PolySpread));
+                else
+                    instrumentJson.Add(JsonKeys.POLY_SPREAD, new JSONString(JsonKeys.OFF));
+
+                instrumentJson.Add(JsonKeys.NO_BANK_L, new JSONBool(instrument.NoBankL));
+                instrumentJson.Add(JsonKeys.NO_BANK_M, new JSONBool(instrument.NoBankM));
                 instrumentJson.Add(JsonKeys.NO_XPOSE, new JSONBool(instrument.NoXpose));
                 instrumentJson.Add(JsonKeys.NO_FTS, new JSONBool(instrument.NoFts));
-                instrumentJson.Add(JsonKeys.MULTI, new JSONBool(instrument.Multi));
+                instrumentJson.Add(JsonKeys.SHOW_NOTE_NUMS, new JSONBool(instrument.ShowNoteNums));
+                instrumentJson.Add(JsonKeys.NO_THRU, new JSONBool(instrument.NoThru));
 
                 //track values
                 var trackValuesJson = new JSONObject();
@@ -206,7 +249,7 @@ namespace CKIEditor.Serialization
                     ccDefJson.Add(JsonKeys.LABEL, new JSONString(CcDef.Label));
                     ccDefJson.Add(JsonKeys.MIN_VAL, new JSONNumber(CcDef.MinValue));
                     ccDefJson.Add(JsonKeys.MAX_VAL, new JSONNumber(CcDef.MaxValue));
-                    ccDefJson.Add(JsonKeys.START_VAL, new JSONNumber(CcDef.MaxValue));
+                    ccDefJson.Add(JsonKeys.START_VAL, new JSONNumber(CcDef.StartValue));
                     ccDefsJson.Add("CC_" + CcDef.CcNum, ccDefJson);
                 } 
                 

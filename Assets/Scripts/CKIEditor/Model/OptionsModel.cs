@@ -12,12 +12,14 @@ namespace CKIEditor.Model
         List<TMP_Dropdown.OptionData> GetMidiPortOptions();
         List<TMP_Dropdown.OptionData> GetMidiChannelOptions();
         List<TMP_Dropdown.OptionData> GetNoteOptions();
+        List<TMP_Dropdown.OptionData> GetDefaultNoteOptions();
         List<TMP_Dropdown.OptionData> GetOctaveOptions();
         List<TMP_Dropdown.OptionData> GetPatternOptions();
         List<TMP_Dropdown.OptionData> GetTrackControlOptions();
         List<TMP_Dropdown.OptionData> GetTrackValueOptions();
         List<TMP_Dropdown.OptionData> GetCcOptions();
         int GetCCnumberByOptionId(int value);
+        int GetOptionIdByCcNumber(int value);
     }
     
     public class OptionsModel : IOptionsModel
@@ -55,9 +57,18 @@ namespace CKIEditor.Model
             return options;
         }
         
+        public List<TMP_Dropdown.OptionData> GetDefaultNoteOptions()
+        {
+            //first option is "off" - default note follows the scene root note
+            var options = new List<TMP_Dropdown.OptionData>();
+            options.Add(new TMP_Dropdown.OptionData("off"));
+            options.AddRange(GetNoteOptions());
+            return options;
+        }
+
         public List<TMP_Dropdown.OptionData> GetNoteOptions()
         {
-            var options = new List<TMP_Dropdown.OptionData>();  
+            var options = new List<TMP_Dropdown.OptionData>();
             options.Add(new TMP_Dropdown.OptionData("C "));
             options.Add(new TMP_Dropdown.OptionData("C#"));
             options.Add(new TMP_Dropdown.OptionData("D "));
@@ -75,12 +86,13 @@ namespace CKIEditor.Model
         
         public List<TMP_Dropdown.OptionData> GetOctaveOptions()
         {
-            const int OCTAVE_COUNT = 10;
-            
+            //Cirklon note range is C0 - G10, octave 10 is displayed as "X"
+            const int MAX_OCTAVE = 10;
+
             var options = new List<TMP_Dropdown.OptionData>();
-            for (var i = 1; i <= OCTAVE_COUNT; i++)
+            for (var i = 0; i <= MAX_OCTAVE; i++)
             {
-                options.Add(new TMP_Dropdown.OptionData(i.ToString()));    
+                options.Add(new TMP_Dropdown.OptionData(i == MAX_OCTAVE ? "X" : i.ToString()));
             }
 
             return options;
@@ -89,9 +101,10 @@ namespace CKIEditor.Model
 
         public List<TMP_Dropdown.OptionData> GetPatternOptions()
         {
-            var options = new List<TMP_Dropdown.OptionData>();  
+            var options = new List<TMP_Dropdown.OptionData>();
             options.Add(new TMP_Dropdown.OptionData("P3"));
             options.Add(new TMP_Dropdown.OptionData("CK"));
+            options.Add(new TMP_Dropdown.OptionData("Sel"));
             return options;
         }
 
@@ -120,16 +133,18 @@ namespace CKIEditor.Model
 
         public int GetCCnumberByOptionId(int value)
         {
-            //TODO: Refactor this super ugly way of getting cc num by option id
             var instrument = InstrumentsModel.GetEditedInstrument();
-            return instrument.CcDefs.Values.ToList()[value].CcNum;
+            var ccDefs = instrument.CcDefs.Values.ToList();
+            if (value < 0 || value >= ccDefs.Count)
+                return -1;
+
+            return ccDefs[value].CcNum;
         }
-        
+
         public int GetOptionIdByCcNumber(int value)
         {
-            //TODO: Refactor this super ugly way of getting cc num by option id
             var instrument = InstrumentsModel.GetEditedInstrument();
-            return instrument.CcDefs.Values.ToList()[value].CcNum;
+            return instrument.CcDefs.Values.ToList().FindIndex(cc => cc.CcNum == value);
         }
 
         private List<TMP_Dropdown.OptionData> GenerateOptionsFromEnum(Type enumType)

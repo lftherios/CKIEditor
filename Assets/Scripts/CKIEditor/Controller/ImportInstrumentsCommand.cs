@@ -1,4 +1,5 @@
 using System.IO;
+using CKIEditor.Metadata;
 using CKIEditor.Model;
 using CKIEditor.Serialization;
 using Crosstales.FB;
@@ -17,6 +18,7 @@ namespace CKIEditor.Controller
     public class ImportInstrumentsCommand : Command
     {
         [Inject] public IInstrumentsModel InstrumentsModel { get; set; }
+        [Inject] public IMetadataModel MetadataModel { get; set; }
         [Inject(BindingKeys.PARSER_CKI)] public IInstrumentsParser CkiParser { get; set; }
         [Inject(BindingKeys.PARSER_PYRAMID)] public IInstrumentsParser PyramidParser { get; set; }
         [Inject] public IPlayerPrefsManager PrefsManager { get; set; }
@@ -46,6 +48,11 @@ namespace CKIEditor.Controller
             //return if no instruments found TODO: inform user
             if(instruments == null || instruments.Count == 0)
                 return;
+
+            //merge sidecar documentation (.ckix) if one travels with the file
+            var sidecarPath = MetadataSerializer.SidecarPathFor(path);
+            if (File.Exists(sidecarPath))
+                MetadataModel.Merge(MetadataSerializer.Parse(File.ReadAllText(sidecarPath)));
 
             var instrumentIdAfterImport = InstrumentsModel.GetAllInstruments().Count;
             InstrumentsModel.AddInstruments(instruments);
