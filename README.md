@@ -1,31 +1,28 @@
-# CKIEditor
-**Instrument Editor for Sequentix Cirklon hardware midi sequencer.**
+<div align="center">
 
-Simple One-screen desktop editor where you can tweak all aspects of instrument definition - global params, note rows, CCs and Track values - without need to manualy edit .CKI files.
+# Cirklon 2 Desktop App
 
-Editor supports all instrument definition features of CirkOS v1.22 (Cirklon 1 v1.22e / Cirklon 2 v1.22d), including:
+**Instrument definitions for the Sequentix Cirklon — described like a synth manual, shipped like the hardware wants them.**
 
-* Instrument flags added since v1.17: `no_thru` (No Edtrk Thru), `no_bankM` (CC0 = bankM), `no_bankL` (CC32 = bankL), `show_note_nums` (Note Nums) and `presend_pgm` (Pre-send Pgm)
-* 30 rows of track values per instrument (180 slots)
-* `poly_spread` in the firmware's format - `"off"` or the number of spread channels (2 - 16)
-* `default_note: "off"` (default note follows the scene root note)
-* Full note range C0 - G10, with octave 10 written as `X` (e.g. `G X`)
+[![firmware](https://img.shields.io/badge/CirkOS-1.22-F0A63C)](https://www.sequentix.com/cirklon-downloads)
+[![format](https://img.shields.io/badge/.CKI-Cirklon%201%20%2B%202-1C1F24)](Assets/Scripts/CKIEditor/Serialization/)
+[![engine](https://img.shields.io/badge/Unity-2019.3-2E333A)](ProjectSettings/ProjectVersion.txt)
+[![tests](https://img.shields.io/badge/format%20harness-87%20passing-2a7d4f)](tests/FormatHarness/)
 
-New in this version (following the [UI/UX design study](https://claude.ai/code/artifact/31ad5186-b122-4c25-9f47-ab0933ce70d4)):
+</div>
 
-* **Preflight on export** - duplicate CCs, over-long labels (with auto-abbreviations like "Feedback Level" → "FdbkLv"), illegal characters, poly-spread channel overflow, shared port/channel routing and more. Errors block export until fixed; every finding carries a one-click repair.
-* **Sidecar documentation (.ckix)** - full control names, descriptions and notes saved as JSON next to the exported .CKI and merged back by CC number on import, so the six-character hardware labels never cost you your documentation.
-* **Track values in rows of six**, mirroring the Cirklon's six slots above six encoders (toggle on TrackValueListView).
+## Why
 
-* **CC map editing** - "Paste chart" imports MIDI implementation rows straight from a manual (`19 Filter Cutoff 0-127`, piped/tabbed tables, `74: Cutoff`), auto-abbreviating six-character labels. The add-CC form takes a full name and notes (stored in the .ckix sidecar) and suggests the label as you type; list rows show the full name as the label's placeholder and follow CC renumbering.
+The Cirklon stores **six characters per control**. Your synth's filter cutoff deserves more than `FltCut` — so this editor keeps the full name, range, and your notes for every CC, and ships the hardware exactly its six characters. Paste rows straight from a MIDI implementation chart (`19 Filter Cutoff 0-127`) and labels are abbreviated for you; the documentation lives in a `.ckix` sidecar next to each export and merges back by CC number on import, so a round-trip through the hardware never costs you what you wrote down.
 
-* **Track value arranging** - drag a slot's grip onto another slot to move it (or swap, when occupied); rows of six mirror the hardware pages.
-* **On-hardware preview** - the Prepare dialog's Preview shows the exact TRACK-values screens the Cirklon will draw: six labels per row, populated rows only, flip rows like turning the ROW encoder.
-* **Export scope** - ship the whole library or just the current instrument; preflight errors only block the scope actually being exported.
+## What you get
 
-* **Studio-console theme** - the whole UI now uses the design study's palette: graphite grounds (`#141619`/`#1C1F24`), silkscreen ink text, and one LED-amber accent (`#F0A63C`) replacing the old red; carets, selections and pressed states follow. Applied at the serialized-prefab level, tokens in `CkiTheme.cs`.
+Track values are arranged in **rows of exactly six** — the same six slots above six encoders the Cirklon shows — with drag-to-move between slots and a character-true preview of the TRACK screens you'll see on stage. Before anything reaches an SD card, **preflight** catches what the hardware would silently mangle (duplicate CCs, over-long labels, poly-spread past channel 16, clashing routings), each finding with a one-click fix; errors block export, warnings ship knowingly. Supports every instrument-definition feature of CirkOS 1.22 on both Cirklon 1 and 2 — including `no_thru`, bank-select flags, `presend_pgm`, 180 track-value slots, and `default_note: off` — plus drum-grid note rows and Squarp Pyramid import.
 
-It is currently work in progress. Remaining before v1.0:
+## Run it
 
-* Dark input/dropdown wells (needs custom sprites - control surfaces are deliberately still light)
-* Choose target CirkOS version on export
+Open the project in **Unity 2019.3** and press play (first launch regenerates `.meta` files for newer scripts). Import any `.CKI` — a `.ckix` beside it is picked up automatically — edit, then *Export* walks preflight → hardware preview → scope (whole library or one instrument). On the Cirklon: `MENU → Card/Sysex → Card LOAD → LOAD Instrument(s)`. The format layer is pure C# with an 87-test harness that round-trips real firmware files (`cd tests/FormatHarness && dotnet run`) — the editor's output is verified against what the Cirklon actually writes.
+
+---
+
+A heavily extended fork of [dyskotron/CKIEditor](https://github.com/dyskotron/CKIEditor) — original editor and UI framework by dyskotron.

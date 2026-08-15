@@ -6,3 +6,8 @@
 *.csproj
 *.csproj.DotSettings
 /Desktop.ini
+
+# format-harness tests are real dotnet projects, not Unity-generated
+!/tests/**/*.csproj
+/tests/**/bin/
+/tests/**/obj/

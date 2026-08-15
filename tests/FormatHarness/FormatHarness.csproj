@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <LangVersion>9</LangVersion>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <SrcRoot>..\..\Assets</SrcRoot>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- harness -->
+    <Compile Include="Program.cs" />
+    <Compile Include="Stubs.cs" />
+    <Compile Include="LogicTests.cs" />
+    <Compile Include="ChartTests.cs" />
+    <Compile Include="ArrangerTests.cs" />
+    <!-- production sources, compiled in place (Unity-free) -->
+    <Compile Include="$(SrcRoot)\Plugins\SimpleJSON\SimpleJSON.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Common\CkiConsts.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Serialization\IInstrumentsParser.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Serialization\JsonKeys.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Serialization\InstrumentUtils.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Serialization\CkiInstrumentsParser.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Serialization\PyramidInstrumentsParser.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Serialization\ChartParser.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Model\NoteStringHelper.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Model\TrackValueArranger.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Model\Defs\InstrumentDef.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Model\Defs\TrackValueDef.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Model\Defs\CcDef.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Model\Defs\NoteRowDef.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Model\Defs\Note.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Model\Enums\TrackValueType.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Model\Enums\TrackControlType.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Model\Enums\PatternType.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Model\Enums\MidiPortOption.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Validation\ValidationFinding.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Validation\LabelAbbreviator.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Validation\InstrumentValidator.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Metadata\InstrumentMetadata.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Metadata\MetadataSerializer.cs" />
+    <Compile Include="$(SrcRoot)\Scripts\CKIEditor\Metadata\MetadataModel.cs" />
+  </ItemGroup>
+</Project>
