@@ -23,7 +23,9 @@ New in this version (following the [UI/UX design study](https://claude.ai/code/a
 * **On-hardware preview** - the Prepare dialog's Preview shows the exact TRACK-values screens the Cirklon will draw: six labels per row, populated rows only, flip rows like turning the ROW encoder.
 * **Export scope** - ship the whole library or just the current instrument; preflight errors only block the scope actually being exported.
 
+* **Studio-console theme** - the whole UI now uses the design study's palette: graphite grounds (`#141619`/`#1C1F24`), silkscreen ink text, and one LED-amber accent (`#F0A63C`) replacing the old red; carets, selections and pressed states follow. Applied at the serialized-prefab level, tokens in `CkiTheme.cs`.
+
 It is currently work in progress. Remaining before v1.0:
 
-* In-place theme reskin of the main screen (CkiTheme tokens exist; needs a Unity editor pass)
+* Dark input/dropdown wells (needs custom sprites - control surfaces are deliberately still light)
 * Choose target CirkOS version on export

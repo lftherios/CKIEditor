@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
+  m_Color: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -463,8 +463,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+  m_Color: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -723,10 +723,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.5849056, g: 0.504895, b: 0.504895, a: 1}
-    m_SelectedColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.43137255, g: 0.45490196, b: 0.48627451, a: 1.0}
+    m_SelectedColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -903,7 +903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
+  m_Color: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1040,8 +1040,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1206,10 +1206,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 0
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.5849056, g: 0.504895, b: 0.504895, a: 1}
-    m_SelectedColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.43137255, g: 0.45490196, b: 0.48627451, a: 1.0}
+    m_SelectedColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1242,7 +1242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+  m_Color: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1387,7 +1387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.0627451, g: 0.07058824, b: 0.07843137, a: 0.5}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1480,7 +1480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 1.0, g: 1.0, b: 1.0, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1569,8 +1569,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280492841
-  m_fontColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1710,7 +1710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 1.0, g: 1.0, b: 1.0, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1959,8 +1959,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2120,7 +2120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 1.0, g: 1.0, b: 1.0, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2403,8 +2403,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2558,8 +2558,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2713,8 +2713,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2854,12 +2854,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2941,8 +2941,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2147483647
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.5}
+    rgba: 3648812142
+  m_fontColor: {r: 0.43137255, g: 0.45490196, b: 0.48627451, a: 0.85}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3083,12 +3083,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 1}
-    m_ColorMultiplier: 5
+    m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -3183,8 +3183,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3359,8 +3359,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3629,7 +3629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 1.0, g: 1.0, b: 1.0, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3789,8 +3789,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3944,8 +3944,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4085,12 +4085,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4246,12 +4246,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4333,8 +4333,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2164260863
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.5}
+    rgba: 3648812142
+  m_fontColor: {r: 0.43137255, g: 0.45490196, b: 0.48627451, a: 0.85}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4495,7 +4495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+  m_Color: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4872,8 +4872,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278456858
+  m_fontColor: {r: 0.10196078, g: 0.07058824, b: 0.01568627, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5027,8 +5027,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5182,8 +5182,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5326,7 +5326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5450,7 +5450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+  m_Color: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5587,8 +5587,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5764,12 +5764,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5851,8 +5851,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280492841
-  m_fontColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6306,8 +6306,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6482,8 +6482,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6646,7 +6646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6823,12 +6823,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 1}
-    m_ColorMultiplier: 5
+    m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -7054,12 +7054,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7215,8 +7215,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7476,8 +7476,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280492841
-  m_fontColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7632,8 +7632,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7896,8 +7896,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8072,8 +8072,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8335,8 +8335,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8490,8 +8490,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8632,12 +8632,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 1}
-    m_ColorMultiplier: 5
+    m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -8767,8 +8767,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8909,12 +8909,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 1}
-    m_ColorMultiplier: 5
+    m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -8997,7 +8997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9337,7 +9337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 1.0, g: 1.0, b: 1.0, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9424,8 +9424,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9569,7 +9569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5849056, g: 0.504895, b: 0.504895, a: 1}
+  m_Color: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9676,8 +9676,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9893,10 +9893,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -10099,8 +10099,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10299,7 +10299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -10416,8 +10416,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10621,8 +10621,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10776,8 +10776,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2164260863
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.5}
+    rgba: 3648812142
+  m_fontColor: {r: 0.43137255, g: 0.45490196, b: 0.48627451, a: 0.85}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -11061,7 +11061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+  m_Color: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -11194,7 +11194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 1.0, g: 1.0, b: 1.0, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -11229,10 +11229,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -11471,8 +11471,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -11626,8 +11626,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -11781,8 +11781,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2147483647
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.5}
+    rgba: 3648812142
+  m_fontColor: {r: 0.43137255, g: 0.45490196, b: 0.48627451, a: 0.85}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -11962,10 +11962,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -12095,7 +12095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 1.0, g: 1.0, b: 1.0, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -12208,10 +12208,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -12517,12 +12517,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 1}
-    m_ColorMultiplier: 5
+    m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -12688,8 +12688,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -12843,8 +12843,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280492841
-  m_fontColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -12987,7 +12987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -13105,8 +13105,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -13280,8 +13280,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2147483647
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.5}
+    rgba: 3648812142
+  m_fontColor: {r: 0.43137255, g: 0.45490196, b: 0.48627451, a: 0.85}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -13461,10 +13461,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -13858,9 +13858,9 @@ MonoBehaviour:
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_CaretColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+  m_CaretColor: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_CustomCaretColor: 1
-  m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
+  m_SelectionColor: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 0.45}
   m_Text: 127
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 2
@@ -13886,7 +13886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -13980,7 +13980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+  m_Color: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14077,7 +14077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 1.0, g: 1.0, b: 1.0, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14112,10 +14112,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -14220,7 +14220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14374,7 +14374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
+  m_Color: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14517,9 +14517,9 @@ MonoBehaviour:
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_CaretColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+  m_CaretColor: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_CustomCaretColor: 1
-  m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
+  m_SelectionColor: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 0.45}
   m_Text: 
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 2
@@ -14545,7 +14545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14655,7 +14655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+  m_Color: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14793,7 +14793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5849056, g: 0.504895, b: 0.504895, a: 1}
+  m_Color: {r: 0.07843137, g: 0.08627451, b: 0.09803922, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14867,12 +14867,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 1}
-    m_ColorMultiplier: 5
+    m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -15040,7 +15040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.0627451, g: 0.07058824, b: 0.07843137, a: 0.5}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -15157,7 +15157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 1.0, g: 1.0, b: 1.0, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -15192,10 +15192,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -15320,7 +15320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 1.0, g: 1.0, b: 1.0, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -15355,10 +15355,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -15440,7 +15440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 1.0, g: 1.0, b: 1.0, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -15614,10 +15614,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.5849056, g: 0.504895, b: 0.504895, a: 1}
-    m_SelectedColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.43137255, g: 0.45490196, b: 0.48627451, a: 1.0}
+    m_SelectedColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -15759,8 +15759,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280492841
-  m_fontColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -16037,8 +16037,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2147483647
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.5}
+    rgba: 3648812142
+  m_fontColor: {r: 0.43137255, g: 0.45490196, b: 0.48627451, a: 0.85}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -16192,8 +16192,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2164260863
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.5}
+    rgba: 3648812142
+  m_fontColor: {r: 0.43137255, g: 0.45490196, b: 0.48627451, a: 0.85}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -16470,7 +16470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -16557,8 +16557,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -16881,9 +16881,9 @@ MonoBehaviour:
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_CaretColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+  m_CaretColor: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_CustomCaretColor: 1
-  m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
+  m_SelectionColor: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 0.45}
   m_Text: 
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 2
@@ -16909,7 +16909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -17090,7 +17090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.0627451, g: 0.07058824, b: 0.07843137, a: 0.5}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -17237,12 +17237,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 1}
-    m_ColorMultiplier: 5
+    m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -17445,12 +17445,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17523,7 +17523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -17558,10 +17558,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 0
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -17710,7 +17710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -17922,7 +17922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 1.0, g: 1.0, b: 1.0, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -18011,8 +18011,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280492841
-  m_fontColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -18222,9 +18222,9 @@ MonoBehaviour:
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_CaretColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+  m_CaretColor: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_CustomCaretColor: 1
-  m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
+  m_SelectionColor: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 0.45}
   m_Text: 
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 2
@@ -18250,7 +18250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -18337,8 +18337,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -18493,7 +18493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.0627451, g: 0.07058824, b: 0.07843137, a: 0.5}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -18582,8 +18582,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280492841
-  m_fontColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -18737,8 +18737,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2147483647
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.5}
+    rgba: 3648812142
+  m_fontColor: {r: 0.43137255, g: 0.45490196, b: 0.48627451, a: 0.85}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -18878,12 +18878,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -18965,8 +18965,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278456858
+  m_fontColor: {r: 0.10196078, g: 0.07058824, b: 0.01568627, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -19131,7 +19131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.8746934, b: 1, a: 1}
+  m_Color: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -19312,10 +19312,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -19445,12 +19445,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19543,7 +19543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.8746934, b: 1, a: 1}
+  m_Color: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -19709,7 +19709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.8746934, b: 1, a: 1}
+  m_Color: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -19875,7 +19875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.8746934, b: 1, a: 1}
+  m_Color: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -20041,7 +20041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.8746934, b: 1, a: 1}
+  m_Color: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -20208,7 +20208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.8746934, b: 1, a: 1}
+  m_Color: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -20374,7 +20374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.8746934, b: 1, a: 1}
+  m_Color: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -20540,7 +20540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.8746934, b: 1, a: 1}
+  m_Color: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -20706,7 +20706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.8746934, b: 1, a: 1}
+  m_Color: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -20885,10 +20885,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -20946,9 +20946,9 @@ MonoBehaviour:
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_CaretColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+  m_CaretColor: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_CustomCaretColor: 1
-  m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
+  m_SelectionColor: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 0.45}
   m_Text: ABase99
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 2
@@ -21053,8 +21053,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -21209,8 +21209,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -21385,8 +21385,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -21616,9 +21616,9 @@ MonoBehaviour:
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_CaretColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+  m_CaretColor: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_CustomCaretColor: 1
-  m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
+  m_SelectionColor: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 0.45}
   m_Text: 0
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 2
@@ -21644,7 +21644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -21766,7 +21766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
+  m_Color: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -21853,8 +21853,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -22182,7 +22182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -22339,8 +22339,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -22651,10 +22651,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 0
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.5849056, g: 0.504895, b: 0.504895, a: 1}
-    m_SelectedColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.43137255, g: 0.45490196, b: 0.48627451, a: 1.0}
+    m_SelectedColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -22687,7 +22687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+  m_Color: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -22850,9 +22850,9 @@ MonoBehaviour:
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_CaretColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+  m_CaretColor: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_CustomCaretColor: 1
-  m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
+  m_SelectionColor: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 0.45}
   m_Text: 0
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 2
@@ -22878,7 +22878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -22965,8 +22965,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278456858
+  m_fontColor: {r: 0.10196078, g: 0.07058824, b: 0.01568627, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -23120,8 +23120,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -23301,10 +23301,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -23543,10 +23543,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.5849056, g: 0.504895, b: 0.504895, a: 1}
-    m_SelectedColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.43137255, g: 0.45490196, b: 0.48627451, a: 1.0}
+    m_SelectedColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -23686,8 +23686,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280492841
-  m_fontColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -23828,12 +23828,12 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 1}
-    m_ColorMultiplier: 5
+    m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -23927,8 +23927,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293060585
+  m_fontColor: {r: 0.91372549, g: 0.90588235, b: 0.88627451, a: 1.0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -24108,10 +24108,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
-    m_SelectedColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
+    m_SelectedColor: {r: 0.36078431, g: 0.23921569, b: 0.05882353, a: 1.0}
     m_DisabledColor: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -24240,7 +24240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -24413,9 +24413,9 @@ MonoBehaviour:
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_CaretColor: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+  m_CaretColor: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_CustomCaretColor: 1
-  m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
+  m_SelectionColor: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 0.45}
   m_Text: 
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 2
@@ -24441,7 +24441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+  m_Color: {r: 0.10980392, g: 0.12156863, b: 0.14117647, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -24556,7 +24556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5849056, g: 0.504895, b: 0.504895, a: 1}
+  m_Color: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -24674,10 +24674,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 0
   m_Colors:
-    m_NormalColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
-    m_HighlightedColor: {r: 0.2264151, g: 0.19544323, b: 0.19544323, a: 1}
-    m_PressedColor: {r: 0.5849056, g: 0.504895, b: 0.504895, a: 1}
-    m_SelectedColor: {r: 0.16176468, g: 0.13916521, b: 0.13916521, a: 1}
+    m_NormalColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
+    m_HighlightedColor: {r: 0.18039216, g: 0.2, b: 0.22745098, a: 1.0}
+    m_PressedColor: {r: 0.43137255, g: 0.45490196, b: 0.48627451, a: 1.0}
+    m_SelectedColor: {r: 0.1372549, g: 0.15294118, b: 0.17647059, a: 1.0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -24710,7 +24710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8455882, g: 0.27979022, b: 0.27979022, a: 1}
+  m_Color: {r: 0.94117647, g: 0.65098039, b: 0.23529412, a: 1.0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -24915,17 +24915,17 @@ PrefabInstance:
     - target: {fileID: 5514230512466824460, guid: 73785eb38f64a43b6a946576dd0795de,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.16078432
+      value: 0.10980392
       objectReference: {fileID: 0}
     - target: {fileID: 5514230512466824460, guid: 73785eb38f64a43b6a946576dd0795de,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.13725491
+      value: 0.12156863
       objectReference: {fileID: 0}
     - target: {fileID: 5514230512466824460, guid: 73785eb38f64a43b6a946576dd0795de,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.13725491
+      value: 0.14117647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73785eb38f64a43b6a946576dd0795de, type: 3}
