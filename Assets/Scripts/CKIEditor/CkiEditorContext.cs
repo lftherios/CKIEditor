@@ -89,6 +89,7 @@ namespace CKIEditor
             
             commandBinder.Bind<ImportInstrumentsSignal>().To<ImportInstrumentsCommand>();
             commandBinder.Bind<ExportInstrumentsSignal>().To<ExportInstrumentsCommand>();
+            commandBinder.Bind<ImportCcChartSignal>().To<ImportCcChartCommand>();
             
             commandBinder.Bind<CreateNewInstrumentSignal>().To<CreateNewInstrumentCommand>();
             commandBinder.Bind<EditGeneralSettingsSignal>().To<EditGeneralSettingsCommand>();

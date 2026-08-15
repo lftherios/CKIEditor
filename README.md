@@ -17,7 +17,9 @@ New in this version (following the [UI/UX design study](https://claude.ai/code/a
 * **Sidecar documentation (.ckix)** - full control names, descriptions and notes saved as JSON next to the exported .CKI and merged back by CC number on import, so the six-character hardware labels never cost you your documentation.
 * **Track values in rows of six**, mirroring the Cirklon's six slots above six encoders (toggle on TrackValueListView).
 
+* **CC map editing** - "Paste chart" imports MIDI implementation rows straight from a manual (`19 Filter Cutoff 0-127`, piped/tabbed tables, `74: Cutoff`), auto-abbreviating six-character labels. The add-CC form takes a full name and notes (stored in the .ckix sidecar) and suggests the label as you type; list rows show the full name as the label's placeholder and follow CC renumbering.
+
 It is currently work in progress. Remaining before v1.0:
 
-* Track value drag-and-drop arranging and CC-map description editing in the UI
+* Track value drag-and-drop arranging
 * More export options (export only selected instruments, choose target CirkOS version)
