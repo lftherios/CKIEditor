@@ -1,31 +1,23 @@
 # Releasing
 
-Builds are produced by GitHub Actions ([.github/workflows/release.yml](../.github/workflows/release.yml)) using [game-ci](https://game.ci) — no local Unity needed. Every `v*` tag builds macOS, Windows and Linux zips (format harness runs first as a gate) and publishes them as a GitHub Release.
-
-## One-time setup: Unity license secret
-
-CI needs a Unity Personal license file (free). Five minutes, once:
-
-1. **Actions → "Acquire Unity activation file" → Run workflow.** Download the `.alf` artifact it produces.
-2. Upload the `.alf` at [license.unity3d.com/manual](https://license.unity3d.com/manual) (sign in with any Unity account, choose *Personal*). You get a `.ulf` file back.
-3. **Settings → Secrets and variables → Actions → New repository secret**: name `UNITY_LICENSE`, value = the entire contents of the `.ulf` file.
-
-Optionally also add `UNITY_EMAIL` and `UNITY_PASSWORD` secrets (game-ci uses them as a fallback activation path).
-
-## Cutting a release
-
 ```sh
 git tag v0.9.0 && git push origin v0.9.0
 ```
 
-That's the whole process. The release appears with `Cirklon2-Desktop-App-{macOS,Windows,Linux}.zip` attached and auto-generated notes. `workflow_dispatch` runs build the zips as artifacts without publishing a release — useful for testing the pipeline.
+That's the whole process — no secrets, no accounts. [`release-app.yml`](../.github/workflows/release-app.yml) gates on `cargo test -p cirklon-core`, bundles on native runners, and publishes a GitHub Release with:
 
-Version number shown to users comes from `bundleVersion` in `ProjectSettings/ProjectSettings.asset` — bump it when tagging.
+| artifact | platform |
+| --- | --- |
+| `Cirklon2-Desktop-App-macOS-universal.dmg` | macOS, Intel + Apple Silicon in one image |
+| `Cirklon2-Desktop-App-Windows-setup.exe` (+ `.msi`) | Windows x64 |
+| `Cirklon2-Desktop-App-Linux.AppImage` (+ `.deb`) | Linux x64 |
+
+`workflow_dispatch` builds the bundles as run artifacts without publishing. Bump `version` in `app/src-tauri/tauri.conf.json` and the workspace version in `app/Cargo.toml` when tagging.
 
 ## Local builds
 
-With Unity 2019.3 installed: **Build** menu → macOS / Windows / Linux / All (output in `Builds/`, gitignored). Headless: `Unity -batchmode -quit -projectPath . -executeMethod CKIEditor.EditorTools.BuildScript.BuildAll`.
+`cd app && cargo tauri build` — bundles land in `app/target/release/bundle/`. On a Mac outside CI, prefix with `CI=true` (the DMG styling step drives Finder via AppleScript, which needs UI-automation permission; `CI=true` skips it). `cargo tauri dev` runs the app.
 
 ## Notes for users installing builds
 
-The binaries are unsigned. macOS: right-click → Open the first time (or `xattr -cr "Cirklon2 Desktop App.app"`). Windows: SmartScreen → More info → Run anyway.
+Binaries are unsigned. macOS: right-click → Open the first time (or `xattr -cr` the app). Windows: SmartScreen → More info → Run anyway. Linux: `chmod +x` the AppImage.

@@ -1,19 +1,6 @@
-/.idea/.idea.CKIEditor/
-/Library/
-/Temp/
-/Logs/
-*.sln
-*.csproj
-*.csproj.DotSettings
-/Desktop.ini
-
-# format-harness tests are real dotnet projects, not Unity-generated
-!/tests/**/*.csproj
-/tests/**/bin/
-/tests/**/obj/
-
-# local standalone builds
-/Builds/
+# IDE
+/.idea/
+.DS_Store
 
 # tauri app
 /app/target/

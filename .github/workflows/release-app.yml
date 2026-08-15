@@ -1,0 +1,119 @@
+name: Build & Release (Tauri app)
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  tests:
+    name: cirklon-core tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: app
+      - run: cargo test -p cirklon-core
+        working-directory: app
+
+  build:
+    name: Bundle ${{ matrix.name }}
+    needs: tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-latest
+            name: macOS
+            args: --target universal-apple-darwin
+          - os: windows-latest
+            name: Windows
+            args: ''
+          - os: ubuntu-22.04
+            name: Linux
+            args: ''
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Add macOS universal targets
+        if: matrix.os == 'macos-latest'
+        run: rustup target add aarch64-apple-darwin x86_64-apple-darwin
+
+      - name: Linux system dependencies
+        if: matrix.os == 'ubuntu-22.04'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev build-essential curl wget file \
+            libxdo-dev libssl-dev libayatana-appindicator3-dev librsvg2-dev
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: app
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Tauri CLI
+        run: npm install -g @tauri-apps/cli
+
+      - name: Build bundles
+        run: tauri build ${{ matrix.args }}
+        working-directory: app
+
+      - name: Collect artifacts
+        shell: bash
+        run: |
+          mkdir -p dist
+          case "${{ matrix.name }}" in
+            macOS)
+              cp app/target/universal-apple-darwin/release/bundle/dmg/*.dmg \
+                 "dist/Cirklon2-Desktop-App-macOS-universal.dmg"
+              ;;
+            Windows)
+              cp app/target/release/bundle/nsis/*-setup.exe \
+                 "dist/Cirklon2-Desktop-App-Windows-setup.exe"
+              cp app/target/release/bundle/msi/*.msi \
+                 "dist/Cirklon2-Desktop-App-Windows.msi" || true
+              ;;
+            Linux)
+              cp app/target/release/bundle/appimage/*.AppImage \
+                 "dist/Cirklon2-Desktop-App-Linux.AppImage"
+              cp app/target/release/bundle/deb/*.deb \
+                 "dist/Cirklon2-Desktop-App-Linux.deb" || true
+              ;;
+          esac
+          ls -la dist
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tauri-${{ matrix.name }}
+          path: dist/*
+
+  release:
+    name: Publish release
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            *.dmg
+            *.exe
+            *.msi
+            *.AppImage
+            *.deb
+          generate_release_notes: true
