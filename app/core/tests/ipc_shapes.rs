@@ -78,6 +78,30 @@ fn findings_round_trip_through_json() {
     assert!(validate::validate(&lib).is_empty());
 }
 
+/// The merge_sidecar command's data path: two frontend-shaped sidecars in,
+/// incoming values fill gaps but never blank what the user already wrote.
+#[test]
+fn frontend_sidecar_merge() {
+    let mut target: cirklon_core::ckix::Sidecar = serde_json::from_str(r#"{
+      "Moog": { "notes": "keep me", "cc_meta": { "74": { "name": "Cutoff" } } },
+      "Sub 37": { "notes": "v1", "cc_meta": {} }
+    }"#).expect("target deserializes");
+    let incoming: cirklon_core::ckix::Sidecar = serde_json::from_str(r#"{
+      "Moog": { "notes": "", "cc_meta": { "74": { "desc": "24 dB lowpass" }, "71": { "name": "Resonance" } } },
+      "Sub 37": { "notes": "v2" },
+      "DX7": { "notes": "algo 5" }
+    }"#).expect("incoming deserializes");
+
+    cirklon_core::ckix::merge(&mut target, &incoming);
+
+    assert_eq!(target["Moog"].notes, "keep me", "empty incoming notes never blank existing");
+    assert_eq!(target["Sub 37"].notes, "v2", "non-empty incoming overwrites");
+    assert_eq!(target["Moog"].cc_meta[&74].name, "Cutoff");
+    assert_eq!(target["Moog"].cc_meta[&74].desc, "24 dB lowpass");
+    assert_eq!(target["Moog"].cc_meta[&71].name, "Resonance");
+    assert_eq!(target["DX7"].notes, "algo 5");
+}
+
 /// Sidecar as the frontend mutates it: empty strings and sparse cc_meta
 /// objects must serialize cleanly and drop empties.
 #[test]

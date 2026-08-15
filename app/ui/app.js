@@ -646,16 +646,6 @@ function openPreview() {
 
 // ---------------------------------------------------------------- actions
 
-//field-level sidecar merge, mirroring core ckix::merge - never blanks existing data
-function mergeSidecar(name, incoming) {
-  const target = meta(name);
-  if (incoming.notes) target.notes = incoming.notes;
-  for (const [cc, cm] of Object.entries(incoming.cc_meta || {})) {
-    const tc = target.cc_meta[cc] || (target.cc_meta[cc] = {});
-    for (const k of ['name', 'desc', 'group']) if (cm[k]) tc[k] = cm[k];
-  }
-}
-
 async function importFile() {
   const path = await dlg.open({
     title: 'Import CKI',
@@ -669,9 +659,14 @@ async function importFile() {
       toast('No instruments found in that file.');
       return;
     }
+    //core owns the merge semantics: field-level, never blanks existing data.
+    //merged entries come back sparse (empty fields omitted) - read via meta() and || fallbacks
+    const sidecar = await invoke('merge_sidecar', { target: state.sidecar, incoming: result.sidecar });
+    //last await is done - everything below mutates state synchronously, so a
+    //failed merge leaves the library untouched and the import can be retried
     const before = state.library.instruments.length;
     state.library.instruments.push(...result.library.instruments);
-    for (const [name, incoming] of Object.entries(result.sidecar)) mergeSidecar(name, incoming);
+    state.sidecar = sidecar;
     if (!state.path) state.path = result.path;
     state.selected = before;
     state.tab = 'setup';

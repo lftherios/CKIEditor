@@ -70,6 +70,12 @@ fn apply_fixes(mut library: Library, fixes: Vec<FixOp>) -> Library {
 }
 
 #[tauri::command]
+fn merge_sidecar(mut target: Sidecar, incoming: Sidecar) -> Sidecar {
+    ckix::merge(&mut target, &incoming);
+    target
+}
+
+#[tauri::command]
 fn parse_chart(text: String) -> Vec<ChartEntry> {
     cirklon_core::chart::parse(&text)
 }
@@ -77,6 +83,26 @@ fn parse_chart(text: String) -> Vec<ChartEntry> {
 #[tauri::command]
 fn suggest_label(name: String) -> String {
     abbrev::suggest(&name)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use cirklon_core::ckix::InstrumentMeta;
+
+    /// Direction matters: incoming overwrites target, and target-only entries survive.
+    #[test]
+    fn merge_sidecar_merges_incoming_into_target() {
+        let mut target = Sidecar::new();
+        target.insert("Moog".into(), InstrumentMeta { notes: "old".into(), ..Default::default() });
+        target.insert("Sub".into(), InstrumentMeta { notes: "keep".into(), ..Default::default() });
+        let mut incoming = Sidecar::new();
+        incoming.insert("Moog".into(), InstrumentMeta { notes: "new".into(), ..Default::default() });
+
+        let merged = merge_sidecar(target, incoming);
+        assert_eq!(merged["Moog"].notes, "new");
+        assert_eq!(merged["Sub"].notes, "keep");
+    }
 }
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
@@ -88,6 +114,7 @@ pub fn run() {
             save_library,
             validate_library,
             apply_fixes,
+            merge_sidecar,
             parse_chart,
             suggest_label,
         ])
