@@ -293,6 +293,36 @@ function renderCcMap(p) {
 
 // ---- track values
 
+function dropOnSlot(e, slots, slot) {
+  e.preventDefault();
+  const from = +e.dataTransfer.getData('text/plain');
+  if (!from || from === slot || !slots[from]) return;
+  const tmp = slots[slot];
+  slots[slot] = slots[from];
+  if (tmp) slots[from] = tmp; else delete slots[from];
+  renderPanel();
+}
+
+function buildSlotCell(slots, slot) {
+  const tv = slots[slot];
+  let cell;
+  if (tv) {
+    cell = el(`<div class="slot${tv.kind === 'Control' ? ' tc' : ''}" draggable="true">
+      <div class="scc">${tv.kind === 'MidiCc' ? 'CC ' + tv.cc : 'track'}</div>
+      <div class="slb">${esc(slotDesc(tv))}</div>
+      <button class="x" title="Clear slot">×</button></div>`);
+    cell.querySelector('.x').onclick = e => { e.stopPropagation(); delete slots[slot]; renderTabs(); renderPanel(); };
+    cell.ondragstart = e => e.dataTransfer.setData('text/plain', String(slot));
+  } else {
+    cell = el(`<div class="slot empty">+</div>`);
+    cell.onclick = () => openSlotPicker(slot);
+  }
+  cell.ondragover = e => { e.preventDefault(); cell.classList.add('dragover'); };
+  cell.ondragleave = () => cell.classList.remove('dragover');
+  cell.ondrop = e => dropOnSlot(e, slots, slot);
+  return cell;
+}
+
 function renderTrackValues(p) {
   const inst = cur();
   const slots = inst.track_values;
@@ -309,31 +339,7 @@ function renderTrackValues(p) {
     const slotRow = rowEl.querySelector('.slotrow');
     for (let col = 0; col < 6; col++) {
       const slot = row * 6 + col + 1;
-      const tv = slots[slot];
-      let cell;
-      if (tv) {
-        cell = el(`<div class="slot${tv.kind === 'Control' ? ' tc' : ''}" draggable="true">
-          <div class="scc">${tv.kind === 'MidiCc' ? 'CC ' + tv.cc : 'track'}</div>
-          <div class="slb">${esc(slotDesc(tv))}</div>
-          <button class="x" title="Clear slot">×</button></div>`);
-        cell.querySelector('.x').onclick = e => { e.stopPropagation(); delete slots[slot]; renderTabs(); renderPanel(); };
-        cell.ondragstart = e => e.dataTransfer.setData('text/plain', String(slot));
-      } else {
-        cell = el(`<div class="slot empty">+</div>`);
-        cell.onclick = () => openSlotPicker(slot);
-      }
-      cell.ondragover = e => { e.preventDefault(); cell.classList.add('dragover'); };
-      cell.ondragleave = () => cell.classList.remove('dragover');
-      cell.ondrop = e => {
-        e.preventDefault();
-        const from = +e.dataTransfer.getData('text/plain');
-        if (!from || from === slot || !slots[from]) return;
-        const tmp = slots[slot];
-        slots[slot] = slots[from];
-        if (tmp) slots[from] = tmp; else delete slots[from];
-        renderPanel();
-      };
-      slotRow.appendChild(cell);
+      slotRow.appendChild(buildSlotCell(slots, slot));
     }
     p.appendChild(rowEl);
   }
@@ -450,6 +456,34 @@ function closeModal() {
 
 // ---- chart import
 
+function applyChartRange(def, e) {
+  const clamp = v => Math.max(0, Math.min(127, v));
+  if (e.min != null && e.max != null) {
+    def.min = clamp(Math.min(e.min, e.max));
+    def.max = clamp(Math.max(e.min, e.max));
+  } else if (e.min != null) {
+    def.min = Math.min(clamp(e.min), def.max);
+  } else if (e.max != null) {
+    def.max = Math.max(clamp(e.max), def.min);
+  }
+  def.start = Math.max(def.min, Math.min(def.max, e.start != null ? e.start : def.start));
+}
+
+async function mergeChartEntry(inst, ccMeta, e) {
+  const isNew = !inst.cc_defs[e.cc];
+  const def = inst.cc_defs[e.cc] || (inst.cc_defs[e.cc] = { cc: e.cc, label: '', min: 0, max: 127, start: 0 });
+  if (e.name && (isNew || !def.label)) def.label = await invoke('suggest_label', { name: e.name });
+  applyChartRange(def, e);
+  if (e.name) (ccMeta[e.cc] || (ccMeta[e.cc] = {})).name = e.name;
+  return isNew;
+}
+
+function importSummary(added, updated) {
+  return updated
+    ? `Added ${added} CCs, updated ${updated} from chart`
+    : `Added ${added} CC${added === 1 ? '' : 's'} from chart`;
+}
+
 function openChartModal() {
   const m = openModal('Paste from chart',
     `<p class="hint" style="color:var(--dim);margin-top:0">One CC per line:
@@ -470,27 +504,13 @@ function openChartModal() {
       const inst = cur();
       const ccMeta = meta(inst.name).cc_meta;
       let added = 0, updated = 0;
-      const clamp = v => Math.max(0, Math.min(127, v));
       for (const e of entries) {
-        const isNew = !inst.cc_defs[e.cc];
-        const def = inst.cc_defs[e.cc] || (inst.cc_defs[e.cc] = { cc: e.cc, label: '', min: 0, max: 127, start: 0 });
-        isNew ? added++ : updated++;
-        if (e.name && (isNew || !def.label)) def.label = await invoke('suggest_label', { name: e.name });
-        if (e.min != null && e.max != null) {
-          def.min = clamp(Math.min(e.min, e.max));
-          def.max = clamp(Math.max(e.min, e.max));
-        } else if (e.min != null) {
-          def.min = Math.min(clamp(e.min), def.max);
-        } else if (e.max != null) {
-          def.max = Math.max(clamp(e.max), def.min);
-        }
-        def.start = Math.max(def.min, Math.min(def.max, e.start != null ? e.start : def.start));
-        if (e.name) (ccMeta[e.cc] || (ccMeta[e.cc] = {})).name = e.name;
+        if (await mergeChartEntry(inst, ccMeta, e)) added++; else updated++;
       }
       closeModal();
       state.tab = 'cc';
       renderAll();
-      toast(updated ? `Added ${added} CCs, updated ${updated} from chart` : `Added ${added} CC${added === 1 ? '' : 's'} from chart`);
+      toast(importSummary(added, updated));
     }]]);
 }
 
@@ -626,6 +646,16 @@ function openPreview() {
 
 // ---------------------------------------------------------------- actions
 
+//field-level sidecar merge, mirroring core ckix::merge - never blanks existing data
+function mergeSidecar(name, incoming) {
+  const target = meta(name);
+  if (incoming.notes) target.notes = incoming.notes;
+  for (const [cc, cm] of Object.entries(incoming.cc_meta || {})) {
+    const tc = target.cc_meta[cc] || (target.cc_meta[cc] = {});
+    for (const k of ['name', 'desc', 'group']) if (cm[k]) tc[k] = cm[k];
+  }
+}
+
 async function importFile() {
   const path = await dlg.open({
     title: 'Import CKI',
@@ -641,17 +671,7 @@ async function importFile() {
     }
     const before = state.library.instruments.length;
     state.library.instruments.push(...result.library.instruments);
-    //field-level sidecar merge, mirroring core ckix::merge - never blanks existing data
-    for (const [name, incoming] of Object.entries(result.sidecar)) {
-      const target = meta(name);
-      if (incoming.notes) target.notes = incoming.notes;
-      for (const [cc, cm] of Object.entries(incoming.cc_meta || {})) {
-        const tc = target.cc_meta[cc] || (target.cc_meta[cc] = {});
-        if (cm.name) tc.name = cm.name;
-        if (cm.desc) tc.desc = cm.desc;
-        if (cm.group) tc.group = cm.group;
-      }
-    }
+    for (const [name, incoming] of Object.entries(result.sidecar)) mergeSidecar(name, incoming);
     if (!state.path) state.path = result.path;
     state.selected = before;
     state.tab = 'setup';

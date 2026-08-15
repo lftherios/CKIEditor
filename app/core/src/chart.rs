@@ -65,41 +65,46 @@ fn parse_plain(line: &str) -> Option<ChartEntry> {
         return None;
     }
 
-    // optional "CC" / "CC#" / "#" prefix before the number
+    strip_cc_marker(&mut tokens);
+
+    let cc = extract_cc(tokens[0])?;
+    tokens.remove(0);
+
+    let (range, start) = take_trailing_range(&mut tokens);
+    let (min, max) = range.unzip();
+
+    Some(ChartEntry { cc, name: tokens.join(" "), min, max, start })
+}
+
+/// Optional "CC" / "CC#" / "#" prefix before the number.
+fn strip_cc_marker(tokens: &mut Vec<&str>) {
     if tokens.len() > 1 {
         let first = tokens[0].to_lowercase();
         if first == "cc" || first == "cc#" || first == "#" {
             tokens.remove(0);
         }
     }
+}
 
-    let cc = extract_cc(tokens[0])?;
-    tokens.remove(0);
-
-    let mut entry = ChartEntry { cc, name: String::new(), min: None, max: None, start: None };
-
-    // pull range (and a start value after it) off the end; a bare trailing
-    // number is only a start value when a range precedes it, so names like
-    // "Osc 2" survive intact
+/// Pull range (and a start value after it) off the end; a bare trailing
+/// number is only a start value when a range precedes it, so names like
+/// "Osc 2" survive intact.
+fn take_trailing_range(tokens: &mut Vec<&str>) -> (Option<(i32, i32)>, Option<i32>) {
     let n = tokens.len();
     if n >= 2 && tokens[n - 1].parse::<i32>().is_ok() {
-        if let Some((min, max)) = parse_range(tokens[n - 2]) {
-            entry.start = tokens[n - 1].parse::<i32>().ok();
-            entry.min = Some(min);
-            entry.max = Some(max);
+        if let Some(range) = parse_range(tokens[n - 2]) {
+            let start = tokens[n - 1].parse::<i32>().ok();
             tokens.truncate(n - 2);
+            return (Some(range), start);
         }
     }
-    if entry.min.is_none() && !tokens.is_empty() {
-        if let Some((min, max)) = parse_range(tokens[tokens.len() - 1]) {
-            entry.min = Some(min);
-            entry.max = Some(max);
+    if !tokens.is_empty() {
+        if let Some(range) = parse_range(tokens[tokens.len() - 1]) {
             tokens.pop();
+            return (Some(range), None);
         }
     }
-
-    entry.name = tokens.join(" ");
-    Some(entry)
+    (None, None)
 }
 
 /// "0-127", "0–127", "0..127", "0 to 127" (single token forms), with optional parens.

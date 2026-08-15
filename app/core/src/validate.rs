@@ -32,6 +32,20 @@ pub enum FixOp {
     ClampStart { instrument: usize, cc: i32, to: i32 },
 }
 
+impl FixOp {
+    fn instrument_index(&self) -> usize {
+        match self {
+            FixOp::TruncateName { instrument }
+            | FixOp::ClampChannel { instrument, .. }
+            | FixOp::ReduceSpread { instrument, .. }
+            | FixOp::ClearSlot { instrument, .. }
+            | FixOp::SetTrackLabel { instrument, .. }
+            | FixOp::SwapCcRange { instrument, .. }
+            | FixOp::ClampStart { instrument, .. } => *instrument,
+        }
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Finding {
     pub severity: Severity,
@@ -64,49 +78,42 @@ pub fn has_errors(findings: &[Finding]) -> bool {
 }
 
 pub fn apply_fix(library: &mut Library, fix: &FixOp) {
+    let Some(inst) = library.instruments.get_mut(fix.instrument_index()) else { return };
     match fix {
-        FixOp::TruncateName { instrument } => {
-            if let Some(inst) = library.instruments.get_mut(*instrument) {
-                inst.name = inst.name.chars().take(MAX_NAME_LEN).collect();
-            }
+        FixOp::TruncateName { .. } => {
+            inst.name = inst.name.chars().take(MAX_NAME_LEN).collect();
         }
-        FixOp::ClampChannel { instrument, to } => {
-            if let Some(inst) = library.instruments.get_mut(*instrument) {
-                inst.midi_channel = *to;
-            }
+        FixOp::ClampChannel { to, .. } => {
+            inst.midi_channel = *to;
         }
-        FixOp::ReduceSpread { instrument, to } => {
-            if let Some(inst) = library.instruments.get_mut(*instrument) {
-                inst.poly_spread = *to;
-            }
+        FixOp::ReduceSpread { to, .. } => {
+            inst.poly_spread = *to;
         }
-        FixOp::ClearSlot { instrument, slot } => {
-            if let Some(inst) = library.instruments.get_mut(*instrument) {
-                inst.track_values.remove(slot);
-            }
+        FixOp::ClearSlot { slot, .. } => {
+            inst.track_values.remove(slot);
         }
-        FixOp::SetTrackLabel { instrument, slot, label } => {
-            if let Some(inst) = library.instruments.get_mut(*instrument) {
-                if let Some(TrackValue::MidiCc { label: l, .. }) = inst.track_values.get_mut(slot) {
-                    *l = Some(label.clone());
-                }
-            }
-        }
-        FixOp::SwapCcRange { instrument, cc } => {
-            if let Some(inst) = library.instruments.get_mut(*instrument) {
-                if let Some(def) = inst.cc_defs.get_mut(cc) {
-                    std::mem::swap(&mut def.min, &mut def.max);
-                    def.start = def.start.clamp(def.min, def.max);
-                }
-            }
-        }
-        FixOp::ClampStart { instrument, cc, to } => {
-            if let Some(inst) = library.instruments.get_mut(*instrument) {
-                if let Some(def) = inst.cc_defs.get_mut(cc) {
-                    def.start = *to;
-                }
-            }
-        }
+        FixOp::SetTrackLabel { slot, label, .. } => set_track_label(inst, slot, label),
+        FixOp::SwapCcRange { cc, .. } => swap_cc_range(inst, cc),
+        FixOp::ClampStart { cc, to, .. } => clamp_start(inst, cc, *to),
+    }
+}
+
+fn set_track_label(inst: &mut Instrument, slot: &u32, label: &str) {
+    if let Some(TrackValue::MidiCc { label: l, .. }) = inst.track_values.get_mut(slot) {
+        *l = Some(label.to_string());
+    }
+}
+
+fn swap_cc_range(inst: &mut Instrument, cc: &i32) {
+    if let Some(def) = inst.cc_defs.get_mut(cc) {
+        std::mem::swap(&mut def.min, &mut def.max);
+        def.start = def.start.clamp(def.min, def.max);
+    }
+}
+
+fn clamp_start(inst: &mut Instrument, cc: &i32, to: i32) {
+    if let Some(def) = inst.cc_defs.get_mut(cc) {
+        def.start = to;
     }
 }
 

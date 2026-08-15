@@ -48,51 +48,68 @@ fn parse_instrument(name: &str, json: &Value) -> Instrument {
     inst.show_note_nums = as_bool(json.get("show_note_nums"));
     inst.presend_pgm = as_bool(json.get("presend_pgm"));
 
-    if let Some(track_values) = json.get("track_values").and_then(Value::as_object) {
-        for (key, tv) in track_values {
-            let Some(slot) = key.strip_prefix("slot_").and_then(|s| s.parse::<u32>().ok()) else {
-                continue;
-            };
-            if let Some(value) = parse_track_value(tv) {
-                inst.track_values.insert(slot, value);
-            }
-        }
-    }
-
-    if let Some(cc_defs) = json.get("CC_defs").and_then(Value::as_object) {
-        for (key, def) in cc_defs {
-            let Some(cc) = key.strip_prefix("CC_").and_then(|s| s.parse::<i32>().ok()) else {
-                continue;
-            };
-            let mut cc_def = CcDef::new(cc);
-            if let Some(label) = def.get("label").and_then(Value::as_str) {
-                cc_def.set_label(label);
-            }
-            if let Some(min) = as_i32(def.get("min_val")) {
-                cc_def.set_min(min);
-            }
-            if let Some(max) = as_i32(def.get("max_val")) {
-                cc_def.set_max(max);
-            }
-            if let Some(start) = as_i32(def.get("start_val")) {
-                cc_def.set_start(start);
-            }
-            inst.cc_defs.insert(cc, cc_def);
-        }
-    }
-
-    if let Some(rows) = json.get("row_defs").and_then(Value::as_object) {
-        for (note_name, row) in rows {
-            let note_id = note::note_id_lenient(note_name);
-            inst.note_rows.insert(note_id, NoteRow {
-                note_id,
-                label: row.get("label").and_then(Value::as_str).unwrap_or("").to_string(),
-                always_show: as_bool(row.get("always_show")),
-            });
-        }
-    }
+    parse_track_values(&mut inst, json);
+    parse_cc_defs(&mut inst, json);
+    parse_note_rows(&mut inst, json);
 
     inst
+}
+
+fn parse_track_values(inst: &mut Instrument, json: &Value) {
+    let Some(track_values) = json.get("track_values").and_then(Value::as_object) else {
+        return;
+    };
+    for (key, tv) in track_values {
+        let Some(slot) = key.strip_prefix("slot_").and_then(|s| s.parse::<u32>().ok()) else {
+            continue;
+        };
+        if let Some(value) = parse_track_value(tv) {
+            inst.track_values.insert(slot, value);
+        }
+    }
+}
+
+fn parse_cc_defs(inst: &mut Instrument, json: &Value) {
+    let Some(cc_defs) = json.get("CC_defs").and_then(Value::as_object) else {
+        return;
+    };
+    for (key, def) in cc_defs {
+        let Some(cc) = key.strip_prefix("CC_").and_then(|s| s.parse::<i32>().ok()) else {
+            continue;
+        };
+        inst.cc_defs.insert(cc, parse_cc_def(cc, def));
+    }
+}
+
+fn parse_cc_def(cc: i32, def: &Value) -> CcDef {
+    let mut cc_def = CcDef::new(cc);
+    if let Some(label) = def.get("label").and_then(Value::as_str) {
+        cc_def.set_label(label);
+    }
+    if let Some(min) = as_i32(def.get("min_val")) {
+        cc_def.set_min(min);
+    }
+    if let Some(max) = as_i32(def.get("max_val")) {
+        cc_def.set_max(max);
+    }
+    if let Some(start) = as_i32(def.get("start_val")) {
+        cc_def.set_start(start);
+    }
+    cc_def
+}
+
+fn parse_note_rows(inst: &mut Instrument, json: &Value) {
+    let Some(rows) = json.get("row_defs").and_then(Value::as_object) else {
+        return;
+    };
+    for (note_name, row) in rows {
+        let note_id = note::note_id_lenient(note_name);
+        inst.note_rows.insert(note_id, NoteRow {
+            note_id,
+            label: row.get("label").and_then(Value::as_str).unwrap_or("").to_string(),
+            always_show: as_bool(row.get("always_show")),
+        });
+    }
 }
 
 fn parse_track_value(json: &Value) -> Option<TrackValue> {

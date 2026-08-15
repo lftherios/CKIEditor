@@ -81,37 +81,43 @@ pub fn sidecar_path(cki_path: &str) -> String {
     }
 }
 
+fn insert_nonempty(obj: &mut Map<String, Value>, key: &str, value: &str) {
+    if !value.is_empty() {
+        obj.insert(key.into(), json!(value));
+    }
+}
+
+fn cc_entry_json(m: &CcMeta) -> Value {
+    let mut entry = Map::new();
+    insert_nonempty(&mut entry, "name", &m.name);
+    insert_nonempty(&mut entry, "desc", &m.desc);
+    insert_nonempty(&mut entry, "group", &m.group);
+    Value::Object(entry)
+}
+
+fn instrument_json(meta: &InstrumentMeta) -> Value {
+    let mut obj = Map::new();
+    insert_nonempty(&mut obj, "notes", &meta.notes);
+    let mut ccs = Map::new();
+    for (cc, m) in &meta.cc_meta {
+        if m.is_empty() {
+            continue;
+        }
+        ccs.insert(cc.to_string(), cc_entry_json(m));
+    }
+    if !ccs.is_empty() {
+        obj.insert("cc_meta".into(), Value::Object(ccs));
+    }
+    Value::Object(obj)
+}
+
 pub fn serialize(sidecar: &Sidecar) -> String {
     let mut instruments = Map::new();
     for (name, meta) in sidecar {
         if meta.is_empty() {
             continue;
         }
-        let mut obj = Map::new();
-        if !meta.notes.is_empty() {
-            obj.insert("notes".into(), json!(meta.notes));
-        }
-        let mut ccs = Map::new();
-        for (cc, m) in &meta.cc_meta {
-            if m.is_empty() {
-                continue;
-            }
-            let mut entry = Map::new();
-            if !m.name.is_empty() {
-                entry.insert("name".into(), json!(m.name));
-            }
-            if !m.desc.is_empty() {
-                entry.insert("desc".into(), json!(m.desc));
-            }
-            if !m.group.is_empty() {
-                entry.insert("group".into(), json!(m.group));
-            }
-            ccs.insert(cc.to_string(), Value::Object(entry));
-        }
-        if !ccs.is_empty() {
-            obj.insert("cc_meta".into(), Value::Object(ccs));
-        }
-        instruments.insert(name.clone(), Value::Object(obj));
+        instruments.insert(name.clone(), instrument_json(meta));
     }
     let root = json!({ "ckix_version": VERSION, "instruments": Value::Object(instruments) });
     serde_json::to_string_pretty(&root).expect("serialization cannot fail")
