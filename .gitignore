@@ -11,3 +11,6 @@
 !/tests/**/*.csproj
 /tests/**/bin/
 /tests/**/obj/
+
+# local standalone builds
+/Builds/

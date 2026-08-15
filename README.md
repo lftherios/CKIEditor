@@ -21,7 +21,7 @@ Track values are arranged in **rows of exactly six** — the same six slots abov
 
 ## Run it
 
-Open the project in **Unity 2019.3** and press play (first launch regenerates `.meta` files for newer scripts). Import any `.CKI` — a `.ckix` beside it is picked up automatically — edit, then *Export* walks preflight → hardware preview → scope (whole library or one instrument). On the Cirklon: `MENU → Card/Sysex → Card LOAD → LOAD Instrument(s)`. The format layer is pure C# with an 87-test harness that round-trips real firmware files (`cd tests/FormatHarness && dotnet run`) — the editor's output is verified against what the Cirklon actually writes.
+Grab the zip for your OS from **[Releases](../../releases)**, unzip, run — the builds are unsigned, so on first launch: macOS right-click → *Open*, Windows *More info → Run anyway*. Or open the project in **Unity 2019.3** and press play (first launch regenerates `.meta` files for newer scripts; releases are cut by [CI](docs/RELEASING.md) from a `v*` tag). Import any `.CKI` — a `.ckix` beside it is picked up automatically — edit, then *Export* walks preflight → hardware preview → scope (whole library or one instrument). On the Cirklon: `MENU → Card/Sysex → Card LOAD → LOAD Instrument(s)`. The format layer is pure C# with an 87-test harness that round-trips real firmware files (`cd tests/FormatHarness && dotnet run`) — the editor's output is verified against what the Cirklon actually writes.
 
 ---
 
