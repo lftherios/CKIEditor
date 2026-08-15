@@ -1,0 +1,9 @@
+[package]
+name = "cirklon-core"
+description = "Sequentix Cirklon instrument-definition format: .CKI parse/serialize, .ckix sidecar, preflight validation, chart import"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }

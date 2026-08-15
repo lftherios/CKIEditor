@@ -14,3 +14,6 @@
 
 # local standalone builds
 /Builds/
+
+# tauri app
+/app/target/

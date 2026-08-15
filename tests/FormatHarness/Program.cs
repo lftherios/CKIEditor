@@ -104,6 +104,15 @@ public static class Program
         const string legacyJson = @"{""instrument_data"":{""B"":{""midi_port"":1,""midi_chan"":1,""default_note"":""C 3"",""default_patt"":""CK"",""poly_spread"":true}}}";
         Check(parser.ParseInstruments(legacyJson)[0].PolySpread == 2, "legacy poly_spread true -> 2");
 
+        // --dump <in.CKI> <out.json>: serialize a file for cross-implementation checks
+        if (args.Length == 3 && args[0] == "--dump")
+        {
+            var dumpLib = parser.ParseInstruments(File.ReadAllText(args[1]));
+            File.WriteAllText(args[2], parser.SerializeInstruments(dumpLib));
+            Console.WriteLine($"dumped {dumpLib.Count} instruments to {args[2]}");
+            return 0;
+        }
+
         // --- 4. The full real INSTS.CKI sample (v1.17 era) ---
         var samplePath = args.Length > 0
             ? args[0]
