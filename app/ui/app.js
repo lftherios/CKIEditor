@@ -20,10 +20,21 @@ const state = {
 
 const NOTES = ['C ', 'C#', 'D ', 'D#', 'E ', 'F ', 'F#', 'G ', 'G#', 'A ', 'A#', 'B '];
 const CONTROLS = [
-  ['pgm', 'pgm'], ['quant', 'quant%'], ['note-pct', 'note%'], ['note-c', 'noteC'],
-  ['velo-pct', 'velo%'], ['velo-c', 'veloC'], ['leng-pct', 'leng%'], ['tbase', 'tbase'],
-  ['xpos', 'xpos'], ['octave', 'octave'], ['knob1', 'knob1'], ['knob2', 'knob2'],
-  ['fts-r', 'fts-R'], ['fts-s', 'fts-S'], ['reich', 'reich'],
+  ['pgm', 'pgm', 'Sends a MIDI program change to pick a patch from the track. 0–127.'],
+  ['quant', 'quant%', 'Live quantise for CK patterns — pulls playback onto the grid set by tbase, in tandem with Swing. On P3 patterns it scales step delays instead (100% = no delay). 0–100%.'],
+  ['note-pct', 'note%', 'Stretches or squeezes pitch — transposes each note in proportion to its distance from the centre note (noteC, default C 4). 0–255%.'],
+  ['note-c', 'noteC', 'Centre note for note% scaling. C 0–G 10.'],
+  ['velo-pct', 'velo%', 'Expands or compresses dynamics — scales each velocity by its distance from the centre velocity (veloC). 0–255%.'],
+  ['velo-c', 'veloC', 'Centre velocity for velo% scaling. 1–127.'],
+  ['leng-pct', 'leng%', 'Scales note lengths. 0–2000%.'],
+  ['tbase', 'tbase', 'Sets the grid spacing quant% snaps to, overriding the pattern default.'],
+  ['xpos', 'xpos', 'Transposes in semitones. −12 to +12.'],
+  ['octave', 'octave', 'Transposes in octaves. −4 to +4.'],
+  ['knob1', 'knob1', 'The knob1 value read by knob mask and grab events in P3 patterns. 0–127.'],
+  ['knob2', 'knob2', 'The knob2 value read by knob mask and grab events in P3 patterns. 0–127.'],
+  ['fts-r', 'fts-R', "Root note for this track's own force-to-scale, applied separately from scene FTS. C–B."],
+  ['fts-s', 'fts-S', "Scale for this track's force-to-scale — 'all' passes every note, same as scene FTS off."],
+  ['reich', 'reich', "Steve Reich phasing — lengthens or shortens a CK pattern's loop by up to ±12 ticks so the track slowly drifts against the others."],
 ];
 const PORTS = ['MIDI 1', 'MIDI 2', 'MIDI 3', 'MIDI 4', 'MIDI 5',
   'USB 1', 'USB 2', 'USB 3', 'USB 4', 'USB 5', 'USB 6'];
@@ -47,6 +58,10 @@ function noteName(id) {
 function controlLabel(kebab) {
   const found = CONTROLS.find(c => c[0] === kebab);
   return found ? found[1] : kebab;
+}
+function controlHelp(kebab) {
+  const found = CONTROLS.find(c => c[0] === kebab);
+  return found ? found[2] : '';
 }
 function cur() { return state.library.instruments[state.selected] || null; }
 function meta(name) {
@@ -307,7 +322,8 @@ function buildSlotCell(slots, slot) {
   const tv = slots[slot];
   let cell;
   if (tv) {
-    cell = el(`<div class="slot${tv.kind === 'Control' ? ' tc' : ''}" draggable="true">
+    const tip = tv.kind === 'Control' ? controlHelp(tv.control) : '';
+    cell = el(`<div class="slot${tv.kind === 'Control' ? ' tc' : ''}" draggable="true"${tip ? ` title="${esc(tip)}"` : ''}>
       <div class="scc">${tv.kind === 'MidiCc' ? 'CC ' + tv.cc : 'track'}</div>
       <div class="slb">${esc(slotDesc(tv))}</div>
       <button class="x" title="Clear slot">×</button></div>`);
@@ -355,7 +371,7 @@ function openSlotPicker(slot) {
       <optgroup label="Track controls">${tcOptions.join('')}</optgroup>
       ${ccOptions.length ? `<optgroup label="CC defs">${ccOptions.join('')}</optgroup>` : ''}
     </select></div>
-    <p class="hint" style="color:var(--faint)">CCs come from the CC Map — define them there first, labels ride along.</p>`,
+    <p class="hint" id="pickHelp" style="color:var(--faint)"></p>`,
     [['Add', 'primary', () => {
       const v = m.querySelector('#pickVal').value;
       if (v.startsWith('tc:')) {
@@ -366,6 +382,15 @@ function openSlotPicker(slot) {
       }
       closeModal(); renderTabs(); renderPanel();
     }]]);
+  const sel = m.querySelector('#pickVal');
+  const help = m.querySelector('#pickHelp');
+  const updateHelp = () => {
+    help.textContent = sel.value.startsWith('tc:')
+      ? controlHelp(sel.value.slice(3))
+      : 'CCs come from the CC Map — define them there first, labels ride along.';
+  };
+  sel.onchange = updateHelp;
+  updateHelp();
 }
 
 // ---- note rows
